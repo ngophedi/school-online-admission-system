@@ -24,14 +24,14 @@ class TeacherExtra(models.Model):
 classes=[('Module1','Module1')]
 class StudentExtra(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    roll = models.CharField(max_length=10)
+    email = models.EmailField(max_length=100)
     mobile = models.CharField(max_length=40,null=True)
     fee=models.PositiveIntegerField(null=True)
     cl= models.CharField(max_length=10,choices=classes,default='Module1')
     status=models.BooleanField(default=False)
     @property
     def get_name(self):
-        return self.user.first_name+" "+self.user.last_name
+        return self.user.first_name+" "+self.user.last_name 
     @property
     def get_id(self):
         return self.user.id
