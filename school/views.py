@@ -105,7 +105,7 @@ def teacher_signup_view(request):
 
 
 
-#for checking user is techer , student or admin
+#for checking user is teacher , student or admin
 def is_admin(user):
     return user.groups.filter(name='ADMIN').exists()
 def is_teacher(user):

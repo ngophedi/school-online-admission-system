@@ -24,7 +24,7 @@ class TeacherExtra(models.Model):
 classes=[('Module1','Module1')]
 class StudentExtra(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    email = models.EmailField(max_length=100)
+    roll = models.CharField(max_length=10)
     mobile = models.CharField(max_length=40,null=True)
     fee=models.PositiveIntegerField(null=True)
     cl= models.CharField(max_length=10,choices=classes,default='Module1')
