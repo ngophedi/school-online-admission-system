@@ -19,7 +19,12 @@ class TeacherExtra(models.Model):
         return self.user.first_name+" "+self.user.last_name
 
 
-
+courses = [
+    ('IT', 'IT'),
+    ('Plumbing', 'Plumbing'),
+    ('Electrical', 'Electrical'),
+ 
+]
 
 classes=[('Module1','Module1')]
 class StudentExtra(models.Model):
@@ -28,6 +33,7 @@ class StudentExtra(models.Model):
     mobile = models.CharField(max_length=40,null=True)
     fee=models.PositiveIntegerField(null=True)
     cl= models.CharField(max_length=10,choices=classes,default='Module1')
+    course = models.CharField(max_length=10, choices=courses, default='IT')
     status=models.BooleanField(default=False)
     @property
     def get_name(self):
