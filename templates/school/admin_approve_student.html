@@ -47,9 +47,11 @@
             <th>Class</th>
             <th>Fee</th>
             <th>Mobile</th>
+            <th>Email</th>
             <th>Approve</th>
             <th>Delete</th>
-            <th>Email</th>
+            
+          
           </tr>
         </thead>
         {% for s in students %}
@@ -58,6 +60,7 @@
           <td>{{s.cl}}</td>
           <td>{{s.fee}}</td>
           <td>{{s.mobile}}</td>
+           <td>{{s.Email}}</td>
           <td><a class="btn btn-primary btn-xs" href="{% url 'approve-student' s.id  %}"><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a class="btn btn-danger btn-xs" href="{% url 'delete-student' s.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
