@@ -1,0 +1,18 @@
+<!-- report_template.html -->
+<table>
+    <thead>
+        <!-- Table headers here -->
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.get_name }}</td>
+            <td>{{ student.cl }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{ student.mobile }}</td>
+            <td>{{ student.fee }}</td>
+            <td>{{ student.Email }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

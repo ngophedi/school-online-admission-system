@@ -12,6 +12,11 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'school/index.html')
 
+def generate_report(request):
+    students = forms.StudentExtraForm.objects.filter(status=True)
+    context = {'students': students}
+    return render(request, 'school/report_template.html', context)
+
 
 
 #for showing signup/login button for teacher(by sumit)
