@@ -12,10 +12,11 @@ def home_view(request):
         return HttpResponseRedirect('afterlogin')
     return render(request,'school/index.html')
 
-def generate_report(request):
-    students = forms.StudentExtraForm.objects.filter(status=True)
+def report_template(request):
+    students = models.StudentExtra.objects.all().filter(status=True)
     context = {'students': students}
-    return render(request, 'school/report_template.html', context)
+    return render(request,'school/report_template.html',{'students':students})
+
 
 
 

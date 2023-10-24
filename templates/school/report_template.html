@@ -1,9 +1,36 @@
 <!DOCTYPE html>
 <body>
-<!-- report_template.html -->
-<table>
+    <head>
+    <style media="screen">
+        a:link {
+          text-decoration: none;
+        }
+    
+        h6 {
+          text-align: center;
+        }
+    
+        .row {
+          margin: 100px;
+        }
+      </style>
+      </head>
+<table class="table table-hover" id="dev-table">
     <thead>
-        <!-- Table headers here -->
+
+      <tr>
+        <th>Name</th>
+        <th>Class</th>
+        <th>course</th>
+        <th>Mobile</th>
+        <th>Fee</th>
+        <th>Email</th>
+        
+        
+       
+      </tr>
+    <thead>
+        
     </thead>
     <tbody>
         {% for student in students %}
