@@ -6,6 +6,8 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from django.core.mail import send_mail
+from django.template.loader import render_to_string
+
 
 def home_view(request):
     if request.user.is_authenticated:
@@ -355,6 +357,10 @@ def delete_student_from_school_view(request,pk):
 def delete_student_view(request,pk):
     student=models.StudentExtra.objects.get(id=pk)
     user=models.User.objects.get(id=student.user_id)
+    subject = 'Student Record Deletion Notification'
+    message = render_to_string('school/delete_notification_email.html', {'user': user})
+    from_email = 'khalebngophe@gmail.com'  
+    recipient_list = [user.Email]
     user.delete()
     student.delete()
     return redirect('admin-approve-student')
