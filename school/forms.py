@@ -13,11 +13,11 @@ class AdminSigupForm(forms.ModelForm):
 class StudentUserForm(forms.ModelForm):
     class Meta:
         model=User
-        fields=['first_name','last_name','username','password']
+        fields=['first_name','last_name','username',]
 class StudentExtraForm(forms.ModelForm):
     class Meta:
         model=models.StudentExtra
-        fields=['Email','cl','mobile','fee','status','course']
+        fields=['Email','cl','mobile','status','course']
 
 
 
