@@ -85,6 +85,10 @@
               <div class="form-group">
                 {% render_field form2.mobile class="form-control" placeholder="Mobile" %}
               </div>
+              <div class="form-group">
+                {% render_field form2.parent_name class="form-control" placeholder="Parent Name" %}
+              </div>
+              
 
             </div>
             <div class="col-md-6">
@@ -98,12 +102,19 @@
                 {% render_field form2.Email class="form-control" placeholder="Email" %}
               </div>
               <div class="form-group">
+                {% render_field form2.national_id class="form-control" placeholder="National ID" %}
+              </div>
+              <div class="form-group">
                 {% render_field form2.fee class="form-control" placeholder="Fee" %}
               </div>
               <div class="form-group">
-                <label for='{{ form2.Course.id_for_label }}'>Course</label>
-                {{ form2.course }}
+                {{ form2.course.label_tag }}  {# Renders the label for the field #}
+                {% render_field form2.course class="form-control" placeholder="Course" %} {# Renders the field itself #}
             </div>
+            <div class="form-group">
+              {% render_field form2.parent_mobile class="form-control" placeholder="Parent Mobile" %}
+            </div>
+            
 
             </div>
           </div>
