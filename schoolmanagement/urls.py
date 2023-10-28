@@ -16,6 +16,8 @@ urlpatterns = [
     path('teacherclick', views.teacherclick_view),
     path('studentclick', views.studentclick_view),
 
+   path('student_detail', views.student_detail, name='student_detail'),
+
 
     path('adminsignup', views.admin_signup_view),
     path('studentsignup', views.student_signup_view,name='studentsignup'),

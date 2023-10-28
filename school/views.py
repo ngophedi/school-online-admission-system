@@ -8,6 +8,10 @@ from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 
+def student_detail(request):
+    students = models.StudentExtra.objects.all().filter(status=True)
+    context = {'students': students}
+    return render(request,'school/student_detail',{'students':students})
 
 def home_view(request):
     if request.user.is_authenticated:
