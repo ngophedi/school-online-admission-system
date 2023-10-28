@@ -62,7 +62,7 @@
 
 
   <!--- signup page for student by admin(sumit)  ---------->
-  <form method="post">
+  <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="container register-form">
       <div class="form">
@@ -88,6 +88,11 @@
               <div class="form-group">
                 {% render_field form2.parent_name class="form-control" placeholder="Parent Name" %}
               </div>
+              <div class="form-group">
+                <label for="{{ form1.profile_image.id_for_label }}">Profile Image</label>
+                <input type="file" name="{{ form1.profile_image.name }}" accept="image/*" class="form-control" id="{{ form1.profile_image.id_for_label }}">
+            </div>
+            
               
 
             </div>
