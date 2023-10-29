@@ -16,7 +16,7 @@ urlpatterns = [
     path('teacherclick', views.teacherclick_view),
     path('studentclick', views.studentclick_view),
 
-   path('student_detail', views.student_detail, name='student_detail'),
+    path('student-detail', views.student_detail, name='student_detail'),
 
 
     path('adminsignup', views.admin_signup_view),
@@ -50,6 +50,7 @@ urlpatterns = [
     path('admin-student', views.admin_student_view,name='admin-student'),
     path('admin-add-student', views.admin_add_student_view,name='admin-add-student'),
     path('admin-view-student', views.admin_view_student_view,name='admin-view-student'),
+    path('student_detail/<int:pk>/', views.student_detail,name='student_detail'),
     path('report_template', views.report_template, name='report_template'),
     path('delete-student-from-school/<int:pk>', views.delete_student_from_school_view,name='delete-student-from-school'),
     path('delete-student/<int:pk>', views.delete_student_view,name='delete-student'),

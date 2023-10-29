@@ -7,11 +7,13 @@ from django.contrib.auth.decorators import login_required,user_passes_test
 from django.conf import settings
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.shortcuts import render, get_object_or_404
+from .models import StudentExtra
 
-def student_detail(request):
-    students = models.StudentExtra.objects.all().filter(status=True)
-    context = {'students': students}
-    return render(request,'school/student_detail',{'students':students})
+def student_detail(request, pk):
+    student = get_object_or_404(StudentExtra, pk=pk)
+    context = {'student': student}
+    return render(request,'school/student_detail.html', context)
 
 def home_view(request):
     if request.user.is_authenticated:

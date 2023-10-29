@@ -70,7 +70,7 @@
           <td>{{s.Email}}</td>
           <td>{{s.parent_name}}</td>
           <td>{{s.parent_mobile}}</td>
-          <td><a class="btn btn-primary btn-lg" href="/student_detail" role="button">view student</a></td>
+          <td><a class="btn btn-primary btn-xs" href="{% url 'student_detail' s.id %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
           <td><a class="btn btn-primary btn-xs" href="{% url 'approve-student' s.id  %}"><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a class="btn btn-danger btn-xs" href="{% url 'delete-student' s.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
         </tr>
