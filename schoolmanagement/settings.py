@@ -145,3 +145,8 @@ EMAIL_HOST_PASSWORD = 'Ngophe47#' # host email password required
 # this process is required because google blocks apps authentication by default
 EMAIL_RECEIVING_USER = ['to@gmail.com'] # email on which you will receive messages sent from website
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+

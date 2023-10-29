@@ -37,7 +37,8 @@ class StudentExtra(models.Model):
     national_id = models.CharField(max_length=20, null=True)  # Add the national ID field
     parent_name = models.CharField(max_length=100, null=True)  # Add the parent name field
     parent_mobile = models.CharField(max_length=40, null=True)  # Add the parent mobile number field
-    profile_image = models.FileField(upload_to='profile_images/', null=True, blank=True)  # Add this line
+    profile_image = models.FileField(upload_to='static/images/', null=True, blank=True)
+
 
 
     status=models.BooleanField(default=False)

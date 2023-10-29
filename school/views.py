@@ -10,6 +10,11 @@ from django.template.loader import render_to_string
 from django.shortcuts import render, get_object_or_404
 from .models import StudentExtra
 
+def student_report(request, pk):
+    student = get_object_or_404(StudentExtra, pk=pk)
+    context = {'student': student}
+    return render(request,'school/student_report.html', context)
+
 def student_detail(request, pk):
     student = get_object_or_404(StudentExtra, pk=pk)
     context = {'student': student}

@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <body>
     <head>
-     
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                border: 2px solid #555;
+                background-color: #f2f2f2;
+            }
+    
+            th, td {
+                border: 1px solid #555;
+                padding: 8px;
+                text-align: left;
+            }
+    
+            th {
+                background-color: #555;
+                color: white;
+            }
+        </style>
       </head>
       <table>
         <thead>
             <tr>
+                <th>Profile Image</th> 
                 <th>Name</th>
                 <th>Class</th>
                 <th>Course</th>
@@ -15,14 +34,25 @@
         </thead>
         <tbody>
             <tr>
+                <td>
+                    {% if student.profile_image %}
+                        <img src="{{ student.profile_image.url }}" alt="{{ student.get_name }}'s Profile Image" width="100">
+                    {% else %}
+                        <!-- Optionally, you can provide a placeholder image or message -->
+                        <p>No profile image available</p>
+                    {% endif %}
+                </td>
+                
                 <td>{{ student.get_name }}</td>
                 <td>{{ student.cl }}</td>
                 <td>{{ student.course }}</td>
                 <td>{{ student.mobile }}</td>
                 <td>{{ student.Email }}</td>
+                
             </tr>
         </tbody>
     </table>
-    
+    <a class="btn btn-primary btn-lg" href="/student_report" role="button"> Report</a>
+
 </body>
 </html>
