@@ -38,7 +38,9 @@ class StudentExtra(models.Model):
     parent_name = models.CharField(max_length=100, null=True)  # Add the parent name field
     parent_mobile = models.CharField(max_length=40, null=True)  # Add the parent mobile number field
     profile_image = models.FileField(upload_to='static/images/', null=True, blank=True)
-
+    result_slip = models.FileField(upload_to='pdf_files/', null=True, blank=True, help_text=' result slip as a PDF file.')
+    national_id_scan = models.FileField(upload_to='pdf_files/', null=True, blank=True, help_text='Upload a scan of your national ID as a PDF file.')
+    leaving_cert_scan = models.FileField(upload_to='pdf_files/', null=True, blank=True, help_text='Upload a scan of your leaving certificate as a PDF file.')
 
 
     status=models.BooleanField(default=False)

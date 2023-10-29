@@ -92,7 +92,21 @@
                 <label for="{{ form1.profile_image.id_for_label }}">Profile Image</label>
                 <input type="file" name="{{ form1.profile_image.name }}" accept="image/*" class="form-control" id="{{ form1.profile_image.id_for_label }}">
             </div>
-            
+            <div class="form-group">
+              <label for="{{ form1.result_slip.id_for_label }}">Result Slip (PDF)</label>
+              <input type="file" name="{{ form1.result_slip.name }}" accept=".pdf" class="form-control" id="{{ form1.result_slip.id_for_label }}">
+          </div>
+          
+          <div class="form-group">
+              <label for="{{ form1.national_id_scan.id_for_label }}">National ID Scan (PDF)</label>
+              <input type="file" name="{{ form1.national_id_scan.name }}" accept=".pdf" class="form-control" id="{{ form1.national_id_scan.id_for_label }}">
+          </div>
+          
+          <div class="form-group">
+              <label for="{{ form1.leaving_cert_scan.id_for_label }}">Leaving Certificate Scan (PDF)</label>
+              <input type="file" name="{{ form1.leaving_cert_scan.name }}" accept=".pdf" class="form-control" id="{{ form1.leaving_cert_scan.id_for_label }}">
+          </div>
+          
               
 
             </div>
