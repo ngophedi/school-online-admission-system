@@ -47,11 +47,10 @@
             <th>Name</th>
             <th>Class</th>
             <th>course</th>
-            <th>national id</th>
+            
             <th>Mobile</th>
-            <th>Email</th>
-            <th>Parent name</th>
-            <th>Parent mobile</th>
+            
+           
             <th>view student</th>
             <th>Approve</th>
             <th>Delete</th>
@@ -65,11 +64,10 @@
           <td> {{s.get_name}}</td>
           <td>{{s.cl}}</td>
           <td>{{s.course}}</td>
-          <td>{{s.national_id}}</td>
+          
           <td>{{s.mobile}}</td>
-          <td>{{s.Email}}</td>
-          <td>{{s.parent_name}}</td>
-          <td>{{s.parent_mobile}}</td>
+          
+         
           <td><a class="btn btn-primary btn-xs" href="{% url 'student_detail' s.id %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
           <td><a class="btn btn-primary btn-xs" href="{% url 'approve-student' s.id  %}"><span class="glyphicon glyphicon-ok"></span></a></td>
           <td><a class="btn btn-danger btn-xs" href="{% url 'delete-student' s.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>

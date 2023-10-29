@@ -27,9 +27,12 @@
                 <th>Profile Image</th> 
                 <th>Name</th>
                 <th>Class</th>
-                <th>Course</th>
+                <th>course</th>
+                <th>national id</th>
                 <th>Mobile</th>
                 <th>Email</th>
+                <th>Parent name</th>
+                <th>Parent mobile</th>
             </tr>
         </thead>
         <tbody>
@@ -43,16 +46,18 @@
                     {% endif %}
                 </td>
                 
-                <td>{{ student.get_name }}</td>
-                <td>{{ student.cl }}</td>
-                <td>{{ student.course }}</td>
-                <td>{{ student.mobile }}</td>
-                <td>{{ student.Email }}</td>
+            <td>{{ student.get_name }}</td>
+            <td>{{ student.cl }}</td>
+            <td>{{ student.course }}</td>
+            <td>{{student.national_id}}</td>
+            <td>{{ student.mobile }}</td>
+            <td>{{ student.Email }}</td>
+            <td>{{student.parent_name}}</td>
+            <td>{{student.parent_mobile}}</td>
                 
             </tr>
         </tbody>
     </table>
-    <a class="btn btn-primary btn-lg" href="/student_report" role="button"> Report</a>
 
 </body>
 </html>
