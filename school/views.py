@@ -98,6 +98,7 @@ def student_signup_view(request):
 
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
+            
             context = {'form1': form1, 'form2': form2, 'success': True}
         return render(request, 'school/submission_success.html', context)
 

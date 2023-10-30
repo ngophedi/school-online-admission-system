@@ -16,6 +16,17 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 STATIC_DIR=os.path.join(BASE_DIR,'static')
+import os
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Define the directory for storing PDF files
+PDF_FILES_UPLOAD_DIR = 'pdf_files/'
+
+# Define the directory for storing images
+IMAGE_UPLOAD_DIR = 'images/'
 
 
 # Quick-start development settings - unsuitable for production
@@ -153,4 +164,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Define the directory for storing PDF files
+PDF_FILES_UPLOAD_DIR = 'pdf_files/'
 
+# Define the directory for storing images
+IMAGE_UPLOAD_DIR = 'images/'

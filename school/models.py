@@ -30,7 +30,7 @@ programs = [
     ('Artisan', 'Artisan'),
 ]
 
-classes=[('Module1','Module1')]
+classes=[('Module1','Module1'),('Module2','Module2'),('Module3','Module3')]
 class StudentExtra(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     Email = models.CharField(max_length=40)
@@ -41,7 +41,7 @@ class StudentExtra(models.Model):
     national_id = models.CharField(max_length=20, null=True)  # Add the national ID field
     parent_name = models.CharField(max_length=100, null=True)  # Add the parent name field
     parent_mobile = models.CharField(max_length=40, null=True)  # Add the parent mobile number field
-    profile_image = models.FileField(upload_to='static/images/', null=True, blank=True)
+    profile_image = models.ImageField(upload_to='school/static/images/', null=True, blank=True)
     result_slip = models.FileField(upload_to='pdf_files/', null=True, blank=True, help_text=' result slip as a PDF file.')
     national_id_scan = models.FileField(upload_to='pdf_files/', null=True, blank=True, help_text='Upload a scan of your national ID as a PDF file.')
     leaving_cert_scan = models.FileField(upload_to='pdf_files/', null=True, blank=True, help_text='Upload a scan of your leaving certificate as a PDF file.')
