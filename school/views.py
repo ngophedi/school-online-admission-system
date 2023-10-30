@@ -98,8 +98,10 @@ def student_signup_view(request):
 
             my_student_group = Group.objects.get_or_create(name='STUDENT')
             my_student_group[0].user_set.add(user)
+            context = {'form1': form1, 'form2': form2, 'success': True}
+        return render(request, 'school/submission_success.html', context)
 
-        return HttpResponseRedirect('studentlogin')
+        
     return render(request,'school/studentsignup.html',context=mydict)
 
 
@@ -382,6 +384,8 @@ def delete_student_from_school_view(request,pk):
     except Exception as e:
         # An exception occurred while sending the email
         print(f"Email sending error: {e}")
+
+    send_mail(subject, message, from_email, recipient_list, fail_silently=False)
     return redirect('admin-view-student')
 
 
