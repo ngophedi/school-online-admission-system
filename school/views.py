@@ -9,6 +9,9 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.shortcuts import render, get_object_or_404
 from .models import StudentExtra
+from django.contrib import messages
+from django.core.mail import send_mail
+
 
 def student_report(request, pk):
     student = get_object_or_404(StudentExtra, pk=pk)
@@ -33,11 +36,13 @@ def report_template(request):
 
 
 
-#for showing signup/login button for teacher(by sumit)
+#for showing signup/login button for admin(by sumit)
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
-    return render(request,'school/adminclick.html')
+    if request.method == 'POST':
+        messages.error(request, 'Invalid username or password. Please try again.')
+    return render(request, 'school/adminclick.html')
 
 
 #for showing signup/login button for teacher(by sumit)
@@ -82,7 +87,7 @@ def student_signup_view(request):
     mydict={'form1':form1,'form2':form2}
     if request.method=='POST':
         form1=forms.StudentUserForm(request.POST)
-        form2=forms.StudentExtraForm(request.POST)
+        form2 = forms.StudentExtraForm(request.POST, request.FILES)  
         if form1.is_valid() and form2.is_valid():
             user=form1.save()
             user.set_password(user.password)
@@ -358,8 +363,25 @@ def admin_view_student_view(request):
 def delete_student_from_school_view(request,pk):
     student=models.StudentExtra.objects.get(id=pk)
     user=models.User.objects.get(id=student.user_id)
+    user_email = user.email
     user.delete()
     student.delete()
+    subject = 'Account Deletion Notification'
+    message = 'Your student account has been deleted by the admin.'
+    from_email = 'papiingophe47@gmail.com'  
+    recipient_list = [user_email]
+
+    try:
+        sent_count = send_mail(subject, message, from_email, recipient_list, fail_silently=False)
+        if sent_count > 0:
+            # Email sent successfully
+            print("Email sent successfully.")
+        else:
+            # Email sending failed
+            print("Email sending failed.")
+    except Exception as e:
+        # An exception occurred while sending the email
+        print(f"Email sending error: {e}")
     return redirect('admin-view-student')
 
 
@@ -368,10 +390,6 @@ def delete_student_from_school_view(request,pk):
 def delete_student_view(request,pk):
     student=models.StudentExtra.objects.get(id=pk)
     user=models.User.objects.get(id=student.user_id)
-    subject = 'Student Record Deletion Notification'
-    message = render_to_string('school/delete_notification_email.html', {'user': user})
-    from_email = 'khalebngophe@gmail.com'  
-    recipient_list = [user.Email]
     user.delete()
     student.delete()
     return redirect('admin-approve-student')
