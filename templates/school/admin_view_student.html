@@ -55,7 +55,9 @@ facebook : fb.com/sumit.luv
             
             <th>Email</th>
             <th>view student</th>
+            <th>update</th>
             <th>Delete</th>
+            
             
            
           </tr>
@@ -65,13 +67,18 @@ facebook : fb.com/sumit.luv
           <td> {{s.get_name}}</td>
           <td>{{s.cl}}</td>
           <td>{{s.programs}}</td>
-          <td>{{s.course}}</td>
+          <td>{{s.course}}</td> 
           <td>{{s.mobile}}</td>
          
           <td>{{s.Email}}</td>
           <td><a class="btn btn-primary btn-xs" href="{% url 'student_detail' s.id %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+          <td>
+            <a class="btn btn-warning btn-xs" href="{% url 'update-student' s.id %}">
+                <span class="glyphicon glyphicon-pencil"></span>
+            </a>
           <td><a class="btn btn-danger btn-xs" href="{% url 'delete-student-from-school' s.id  %}"><span class="glyphicon glyphicon-trash"></span></a></td>
-
+          
+        </td>
         </tr>
 
         {% endfor %}

@@ -40,9 +40,11 @@ def report_template(request):
 def adminclick_view(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('afterlogin')
+    
     if request.method == 'POST':
         messages.error(request, 'Invalid username or password. Please try again.')
     return render(request, 'school/adminclick.html')
+
 
 
 #for showing signup/login button for teacher(by sumit)
@@ -101,8 +103,8 @@ def student_signup_view(request):
             
             context = {'form1': form1, 'form2': form2, 'success': True}
         return render(request, 'school/submission_success.html', context)
-
-        
+    
+    
     return render(request,'school/studentsignup.html',context=mydict)
 
 
